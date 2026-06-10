@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Location Tracker</title>
+
+    <link rel="stylesheet"
+    href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="dashboard">
+
+    <div class="header">
+        <h1>📍 Live Location Tracker</h1>
+        <p>Track your live location, speed, accuracy and route in real-time</p>
+    </div>
+    <div class="card">
+        <h3>📍 Latitude</h3>
+        <p id="lat">--</p>
+    </div>
+
+    <div class="card">
+        <h3>🌍 Longitude</h3>
+        <p id="lng">--</p>
+    </div>
+
+    <div class="card">
+        <h3>🎯 Accuracy</h3>
+        <p id="accuracy">--</p>
+    </div>
+
+    <div class="card">
+        <h3>🚗 Speed</h3>
+        <p id="speed">--</p>
+    </div>
+
+    <div class="card">
+        <h3>🛣 Distance</h3>
+        <p id="distance">0 km</p>
+    </div>
+</div>
+
+    <button onclick="startTracking()">Start Live Tracking</button>
+
+    <div id="map"></div>
+
+    <h2>Location History</h2>
+
+    <table id="historyTable">
+        <tr>
+            <th>Time</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+        </tr>
+    </table>
+
+</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="script.js"></script>
+</body>
+   
+</html>
