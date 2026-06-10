@@ -13,6 +13,7 @@ function startTracking() {
     } else {
         alert("Geolocation is not supported by this browser.");
     }
+    document.getElementById("status").innerHTML = "Tracking Active";
 }
 function showLiveLocation(position) {
     const lat = position.coords.latitude;
@@ -38,6 +39,11 @@ function showLiveLocation(position) {
     document.getElementById("speed").innerHTML = speedKmph + " km/h";
     document.getElementById("distance").innerHTML =
     totalDistance.toFixed(3) + " km";
+
+    document.getElementById("currentTime").innerHTML =
+    new Date().toLocaleTimeString();
+    document.getElementById("distance").innerHTML =
+    totalDistance.toFixed(3) + " km";
     locations.push({
         latitude: lat,
         longitude: lng,
@@ -55,9 +61,12 @@ function showLiveLocation(position) {
     if (!map) {
         map = L.map('map').setView([lat, lng], 16);
 
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19
-        }).addTo(map);
+        L.tileLayer(
+            'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+    {
+        maxZoom: 19
+    }
+        ).addTo(map);
     }
 
     if (!marker) {
